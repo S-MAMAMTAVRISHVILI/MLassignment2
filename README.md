@@ -6,7 +6,7 @@
 
 - **სამიზნე ცვლადი**: `isFraud` (binary, ~3.5% positive class — imbalanced).
 - **შეფასების მეტრიკა**: **Area Under the ROC Curve (AUC)**.
-- **გამოწვევები**: მაღალი mismatch train/test შორის (test set მომავალშია), V*/D* feature-ების მნიშვნელოვანი ნაწილი NaN-ია, კატეგორიული feature-ების დიდი ცვალებადობა (`card1`-ს ~13K უნიკალური მნიშვნელობა აქვს).
+- **გამოწვევები**: მაღალი mismatch train/test შორის, V*/D* feature-ების მნიშვნელოვანი ნაწილი NaN-ია, კატეგორიული feature-ების დიდი ცვალებადობა (`card1`-ს მიახლოებით 13K უნიკალური მნიშვნელობა აქვს).
 
 ## ჩემი მიდგომა პრობლემის გადასაჭრელად
 
@@ -217,7 +217,7 @@ MLflow: https://dagshub.com/smama23/MLassignment2.mlflow/
 | **Kaggle Public LB** | **0.9466** |
 | **Kaggle Private LB** | **0.9163** |
 | Pipeline steps | `feature_engineering → aggregations → encoding → pruner → model` |
-| Final n_estimators | Optuna-სა და early stopping-ით შერჩეული |
+| Final n_estimators | Optuna-ითა და early stopping-ით შერჩეული |
 | Registered as | `XGBoost_FraudDetection` (DagsHub MLflow Model Registry) |
 
 საბაზისო `XGBoost_FraudDetection_v1`-თან შედარებამ გამოაჩინა, რომ ოპტიმიზაციამ რეალურ Leaderboard-ზე გააუმჯობესა შედეგი — და სწორედ ეს ადასტურებს ოპტიმალურ XGBoost-ში გატარებული feature engineering-ის ღირებულებას.
